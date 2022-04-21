@@ -1,0 +1,39 @@
+
+<html>
+  <head>
+              <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+<body>
+            <h3>Second page</h3>
+            <h2>My Details</h2>
+  <div id="show">
+           <br><p><label for="file" style="cursor: pointer;">My Profile</label></p>
+        <br><p><img id="output" width="200" /></p>
+        <br>
+        <p><b><u>DATA'S</u> </b></p>
+        <br><p><b>Name:</b> <label id="Name" style="cursor: pointer;"></label></p>
+        <br><p><b>Age: </b><label id="Age" style="cursor: pointer;"></label></p>
+        <br><p><b>Mobile number:</b> <label id="Num" style="cursor: pointer;"></label></p>
+         <br><p><b>Address: </b><label id="add" style="cursor: pointer;"><label></p>
+</div>    
+       <script>
+        
+        var pic = document.querySelector('#output');
+        pic.setAttribute("src",localStorage.getItem("file-img"));
+        
+        var obj = JSON.parse(sessionStorage.getItem('Det')); 
+        
+        document.getElementById('Name').innerHTML = obj.Name;
+        document.getElementById('Age').innerHTML = obj.Age;
+        document.getElementById('Num').innerHTML=obj.MobileNumber;
+        document.getElementById("add").innerHTML=obj.Address;
+
+
+
+        </script>
+            
+
+
+
+</body>
+</html>       

@@ -1,0 +1,48 @@
+<html >
+<head>
+    <title>Json</title>
+       <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+   <h3> First Page </h3>
+  <div id="show">
+               <input type="file" id="file" name="filename" onchange="File(event)"><br>
+            Enter ur name
+            <input type="text" id="name" /><br><br>
+            Enter ur age
+            <input type="text" id="age"><br><br>
+            Enter ur number
+            <input type="text" id="number"><br><br>  
+            Enter your  Address:       
+<textarea type="text" id="address"></textarea><br><br>
+             <input type="submit" id="submit" onclick="fnRedirect()">
+</div>
+</body>
+<script type="text/javascript">
+        var imgsrc = ' ';
+        var fnRedirect = function () {
+                                                               var Name =  document.getElementById('name').value;
+                                                               var Age = document.getElementById('age').value;
+                                                               var MobileNumber = document.getElementById('number').value;
+                                                               var Address= document.getElementById('address').value;                                                               
+                         var jso = new Object();
+
+            jso.Name=Name;
+            jso.Age=Age;
+            jso.MobileNumber=MobileNumber;
+            jso.Address=Address;
+            sessionStorage.setItem('Det', JSON.stringify(jso));
+           
+            location.href = "show.html";
+        };
+        
+        document.querySelector("#file").addEventListener("change",     function(){
+                 const reader = new FileReader();
+                reader.addEventListener("load", () =>{
+                    localStorage.setItem("file-img", reader.result);
+                })
+                reader.readAsDataURL(this.files[0]);
+
+       });      
+    </script>
+</html>
